@@ -3,16 +3,16 @@
 	<head>
 		<meta charset="utf-8">
 		<title>控制台</title>
-		<link rel="stylesheet" type="text/css" href="/tp3/Public/css/identify.css" />
-		<link rel="stylesheet" type="text/css" href="/tp3/Public/css/layout.css" />
-		<link rel="stylesheet" type="text/css" href="/tp3/Public/css/account.css" />
-		<link rel="stylesheet" type="text/css" href="/tp3/Public/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="/tp3/Public/css/control_index.css" />
-		<script type="text/javascript" src="/tp3/Public/js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="/tp3/Public/js/layer/layer.js"></script>
-		<script type="text/javascript" src="/tp3/Public/js/haidao.offcial.general.js"></script>
-		<script type="text/javascript" src="/tp3/Public/js/select.js"></script>
-		<script type="text/javascript" src="/tp3/Public/js/haidao.validate.js"></script>
+		<link rel="stylesheet" type="text/css" href="/Public/css/identify.css" />
+		<link rel="stylesheet" type="text/css" href="/Public/css/layout.css" />
+		<link rel="stylesheet" type="text/css" href="/Public/css/account.css" />
+		<link rel="stylesheet" type="text/css" href="/Public/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/Public/css/control_index.css" />
+		<script type="text/javascript" src="/Public/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="/Public/js/layer/layer.js"></script>
+		<script type="text/javascript" src="/Public/js/haidao.offcial.general.js"></script>
+		<script type="text/javascript" src="/Public/js/select.js"></script>
+		<script type="text/javascript" src="/Public/js/haidao.validate.js"></script>
 	</head>
 
 	<body>
@@ -20,7 +20,7 @@
 			<div class="topbar-console">
 				<div class="tobar-head fl">
 					<a href="#" class="topbar-logo fl">
-					<span><img src="/tp3/Public/images/logo.png" width="20" height="20"/></span>
+					<span><img src="/Public/images/logo.png" width="20" height="20"/></span>
 					</a>
 					<a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理控制台</span></a>
 				</div>

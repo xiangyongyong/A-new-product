@@ -1,8 +1,46 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
-    public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+class BaseController extends Controller {
+	
+	const OK = 1;
+    const ERROR = -1;
+    
+	public function _initialize() {
+		/**是否登陆**/
+        $this->chkPri();
+	}
+	
+	public function chkPri() {
+		$is_arr = array('login', 'dologin');
+        if (!session('userId')) {
+            session(null);
+            cookie(null);
+            if (in_array(strtolower(ACTION_NAME), $is_arr)) {
+                return;
+            }
+            //$this->redirect('/Login/login');
+            echo "<script language=\"javascript\">top.location.href='/Login/login';</script>";
+            die();
+        }
+	}
+	
+	protected function _ajaxExit($ret)
+    {
+        echo json_encode($ret, JSON_UNESCAPED_UNICODE);
+        exit();
     }
+	
+	protected function _ajaxSuccess($msg = '操作成功', array $data = array())
+    {
+        $ret = array('ret' => self::OK, 'msg' => $msg, 'data' => $data);
+        $this->_ajaxExit($ret);
+    }
+
+    protected function _ajaxFailure($msg = '操作失败', array $data = array())
+    {
+        $ret = array('ret' => self::ERROR, 'msg' => $msg, 'data' => $data);
+        $this->_ajaxExit($ret);
+    }
+	
 }

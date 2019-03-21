@@ -6,10 +6,11 @@
 		<title>某某科技</title>
 		<meta name="keywords" content="某某科技" />
 		<meta name="description" content="某某科技" />
-		<link href="Css/layout.css" rel="stylesheet" type="text/css">
-		<link href="Css/login.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="Js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="Js/js.js"></script>
+		<link href="__PUBLIC__/css/layout.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/css/login.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.form.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/js.js"></script>
 	</head>
 	<style>
 		.ibar {display: none;}
@@ -20,7 +21,7 @@
 			<div class="login-dom login-max">
 				<div class="logo text-center">
 					<a href="#">
-					<img src="Images/logo.png" width="180px" height="180px">
+					<img src="__PUBLIC__/images/logo.png" width="180px" height="180px">
 					</a>
 				</div>
 				<div class="login container " id="login">
@@ -30,7 +31,7 @@
 					<p class=" text-center margin-small-top logo-color text-small">
 						控制台 | 云平台 | 论坛 | 云市场
 					</p>
-					<form class="login-form" action="index.html" method="post" autocomplete="off">
+					<form class="login-form" action="/Login/doLogin" method="post" autocomplete="off">
 						<div class="login-box border text-small" id="box">
 							<div class="name border-bottom">
 								<input type="text" placeholder="手机 / 邮箱 / 某某账号" id="username" name="username" datatype="*" nullmsg="请填写帐号信息">
@@ -59,7 +60,7 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript" src="Js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/Validform_v5.3.2_min.js"></script>
 	<script type="text/javascript">
 		function popup_msg(msg) {
 			$(".popup").html("" + msg + "");
@@ -75,23 +76,22 @@
 
 		/*动画（注册）*/
 		$(document).ready(function(e) {
-			// $("input[name=username]").focus();
-			// $('.login-form').Validform({
-			// 	ajaxPost: true,
-			// 	tiptype: function(msg) {
-			// 		if (msg) popup_msg('' + msg + '');
-			// 	},
-			// 	callback: function(ret) {
-			// 		popup_msg('' + ret.info + '');
-			// 		if (ret.status == 1) {
-			// 			if (ret.uc_user_synlogin) {
-			// 				$("body").append(ret.uc_user_synlogin);
-			// 			}
-			// 			setTimeout("window.location='" + ret.url + "'", 2000);
-			// 		}
-			// 	}
-			// })
-
+			 $("input[name=username]").focus();
+			 $('.login-form').Validform({
+			 	ajaxPost: true,
+			 	tiptype: function(msg) {
+			 		if (msg) popup_msg('' + msg + '');
+			 	},
+			 	callback: function(ret) {
+			 		popup_msg('' + ret.msg + '');
+			 		if (ret.ret == 1) {
+			 			//if (ret.uc_user_synlogin) {
+			 			//	$("body").append(ret.uc_user_synlogin);
+			 			//}
+			 			setTimeout("window.location='" + ret.data.url + "'", 2000);
+			 		}
+			 	}
+			 })	 
 		});
 	</script>
 
