@@ -4,6 +4,7 @@ use Think\Controller;
 class LoginController extends BaseController {
     
 	public function login() {
+		layout(false);
 		$this->display();
 	}
 	
@@ -13,7 +14,6 @@ class LoginController extends BaseController {
         $password = I('post.password');
         if($admin->create($_POST, 4)) {
             if($admin->validPassName($user_name,$password) === TRUE) {
-                $id = session('userId');
                 $this->_ajaxSuccess('登录成功',array('url' => '/Index/index'));
             }
             else{
@@ -23,6 +23,11 @@ class LoginController extends BaseController {
         else{
             $this->_ajaxFailure('用户名或密码格式不正确');
         }
+	}
+	
+	public function logOut() {
+		session(null);
+		$this->_ajaxSuccess('退出登录！');
 	}
 	
 }

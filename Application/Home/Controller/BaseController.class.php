@@ -9,10 +9,11 @@ class BaseController extends Controller {
 	public function _initialize() {
 		/**是否登陆**/
         $this->chkPri();
+		$this->assign("userName",session('userInfo.user_name'));
 	}
 	
 	public function chkPri() {
-		$is_arr = array('login', 'dologin');
+		$is_arr = array('login', 'dologin', 'logout');
         if (!session('userId')) {
             session(null);
             cookie(null);

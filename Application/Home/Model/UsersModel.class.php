@@ -20,6 +20,12 @@ class UsersModel extends BaseModel
                 $userInfo['mobile'] = $user['mobile'];
                 //$userInfo['user_type'] = '10';
                 session('userInfo',$userInfo);
+				//记录登录日志
+				$log = [];
+				$log['host'] = ip();
+				$log['user_name'] = $user['user_name'];
+				$log['created'] = date("Y-m-d H:i:s", time());
+				$res = $this->table('n_login_log')->add($log);
                 return TRUE;
             }
             return FALSE;
